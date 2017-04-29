@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<style>
+	body{
+
+		display: flex;
+		flex-direction:column;
+		justify-content: center;
+		align-items:center;	
+		font-family: 'Roboto', sans-serif;
+	}
+	h1{
+		font-weight: 600;
+	}
+	label{
+		letter-spacing:1px;
+		font-weight: bold;600;
+	}
+	#flex-container{
+		display:flex;
+		flex-direction:row;		
+		justify-content: center;
+	}
+	.calculator-container{
+		padding: 20px;
+		background-color: #efefef;
+		border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		border-radius: 10px;
+	}
+	.text-giant{
+		font-size: 40px;
+		display: flex;
+		flex-direction:row;
+		justify-content: flex-end;
+	}
+	</style>
+	<title>Pricing Calculator</title>
+</head>
+<body>
+	<div id="flex-container">
+		<div class="calculator-container">
+			<h1>How much does pies costs?</h1>
+			<form action="">
+				<label for="price">Price</label>
+				<input type="text" name="price" value="25">
+				<label for="quantity">Quantity <span class="quantity-label">1</span> </label>
+				<input type="range" class="" name="quantity" value="1" min="1" max="10" step="1">
+			</form>
+			<div class="text-giant total-container"></div>			
+		</div>		
+	</div>
+	<script>
+  	// 1.- Grab everything that we need
+  	const priceInput 	= document.querySelector('[name = price]');
+  	const quantityInput 	= document.querySelector('[name = quantity]');
+  	const total 		= document.querySelector('.total-container');
+  	const quantityLabel 	= document.querySelector('.quantity-label');
+	// 2.- Create the functions that we'll need 
+	function calculatePieCost(){
+		const price 		= priceInput.value;
+		const quantity 		= quantityInput.value;
+		const totalCost 	= price * quantity;
+		total.innerText 	= '$' + totalCost.toFixed(2);
+	}
+	function updateQuantityLabel(){
+		const quantity 		= quantityInput.value;
+		quantityLabel.innerText 	= quantity;
+	}
+	calculatePieCost();
+	// 3.- Add event listeners
+	priceInput.addEventListener('input', calculatePieCost);
+	quantityInput.addEventListener('input', calculatePieCost);
+	quantityInput.addEventListener('input', updateQuantityLabel);
+	</script>
+</body>
+</html>
