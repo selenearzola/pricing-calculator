@@ -1,1 +1,1 @@
-You can see the working code here: https://selenearzola.github.io/pricing-calculator/
+I've publish this repository using GitHubPages, [visit] (https://selenearzola.github.io/pricing-calculator)
